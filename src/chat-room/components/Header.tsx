@@ -10,8 +10,13 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
+import AuthService from "../../services/authService";
 
 export default function Header() {
+  const logout = () => {
+    AuthService.logout();
+  };
+
   return (
     <Navbar fluid className="border-b">
       <NavbarBrand href="https://flowbite-react.com">
@@ -46,7 +51,7 @@ export default function Header() {
           <DropdownItem>Settings</DropdownItem>
           <DropdownItem>Earnings</DropdownItem>
           <DropdownDivider />
-          <DropdownItem>Sign out</DropdownItem>
+          <DropdownItem onClick={logout}>Sign out</DropdownItem>
         </Dropdown>
         <NavbarToggle />
       </div>
